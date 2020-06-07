@@ -1,0 +1,19 @@
+<!-- <span (click)="getPreviousOrders()">Previous Orders</span> -->
+<table *ngIf="allProducts">
+    <thead>
+        <tr>
+            <td>id</td>
+            <td>order</td>
+            <td>product</td>
+            <td>price</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let product of allProducts">
+            <td>{{product.id}}</td>
+            <td>{{product.order}}</td>
+            <td>{{product.product}}</td>
+            <td>{{product.price}}</td>
+        </tr>
+    </tbody>
+</table>

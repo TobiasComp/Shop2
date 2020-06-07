@@ -1,0 +1,32 @@
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 0;
+    background-color: rgb(32, 192, 139);
+    margin: 0;
+}
+
+.nav-item {
+    padding: 20px 20px;
+    font-family: sans-serif;
+}
+
+.nav-item:hover {
+    background-color: black;
+    color: white;
+}
+
+.right-nav {
+    display: flex;
+    
+}
+
+.left-nav {
+    display: flex;
+}
+
+.admin-routes{
+    display: flex;
+}

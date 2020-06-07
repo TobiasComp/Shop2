@@ -1,0 +1,13 @@
+
+<div class="signup-div-wrapper" *ngIf="signupFormGroup">
+    <form [formGroup]="signupFormGroup" class="signup-form">
+        
+        
+            <input class="form-input" type="text" placeholder="Username" formControlName="user"><br>
+            <input class="form-input" placeholder="Password" formControlName="pass" type="password">
+            <br>
+            <button class="form-button" [disabled]="signupFormGroup.invalid" (click)="signup()">Signup</button>
+    </form>
+</div>
+  
+  

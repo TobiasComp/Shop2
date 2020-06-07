@@ -1,0 +1,23 @@
+<!-- <p>products works!</p> -->
+<table *ngIf = "productService.products">
+    <thead>
+        <tr>
+            <th>
+                Name        
+            </th>
+            <th>
+                Id
+            </th>
+            <th>
+                Price
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let product of productService.products" (click)="getProduct(product)">
+            <td>{{product.name}}</td>
+            <td>{{product.id}}</td>
+            <td>{{product.price}}</td>
+        </tr>
+    </tbody>
+</table>

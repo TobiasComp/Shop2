@@ -1,0 +1,30 @@
+<p>cart works!</p>
+
+<table *ngIf = "cartService.products">
+    <thead>
+        <tr>
+            <th>
+                Name        
+            </th>
+            <th>
+                Id
+            </th>
+            <th>
+                Price
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let product of cartService.products" >
+            <td>{{product.name}}</td>
+            <td>{{product.id}}</td>
+            <td>{{product.price}}</td>
+        </tr>
+        <tr>
+            <td>Total:</td>
+            <td>{{cartService.total}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<button (click)="placeOrder()">Place Your Order</button>

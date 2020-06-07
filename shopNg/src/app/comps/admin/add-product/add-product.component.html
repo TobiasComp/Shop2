@@ -1,0 +1,7 @@
+<p>add-product works!</p>
+<form action="" (ngSubmit)="addProduct()" [formGroup]="addProductGroup">
+    <input type="text" placeholder="product name" formControlName="name">
+    <input type="text" placeholder="product price" formControlName="price">
+    <input type="file" placeholder="file" (change)="onFileSelected($event)">
+    <button type="submit"> Add</button>
+</form>

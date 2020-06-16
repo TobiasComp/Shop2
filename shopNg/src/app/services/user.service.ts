@@ -5,6 +5,7 @@ import { Product } from '../models/product';
 import { HttpClient } from '@angular/common/http';
 import { OrderProductList } from '../models/order-product-list';
 import { Observable, BehaviorSubject } from 'rxjs';
+import {host } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 
 export class UserService {
 
-  myApi = "http://localhost:8001/userorders/"
+  myApi = host + "userorders/"
   currentUser: User = new User()
   previousOrders: OrderProductList[]
   dataSubject: BehaviorSubject<OrderProductList[]> = new BehaviorSubject<OrderProductList[]>([])

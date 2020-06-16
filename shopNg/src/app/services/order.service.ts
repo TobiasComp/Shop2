@@ -5,6 +5,7 @@ import { CartService } from './cart.service';
 import { UserService } from './user.service';
 import { HttpClient } from '@angular/common/http';
 import { OrderProductList } from '../models/order-product-list';
+import { host } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class OrderService {
 
   products: Product[]
   order: Order
-  myApi: string = "http://localhost:8001/orders"
+  myApi: string = host + "orders"
   constructor(public cartService: CartService, public userService: UserService, public http: HttpClient) { }
 
   placeOrder() {
@@ -59,7 +60,7 @@ export class OrderService {
     })
     console.log("This is the array to be inserted into the db", arrOrderProduct);
 
-    this.http.post<OrderProductList[]>("http://localhost:8001/order-product-lists/arr", arrOrderProduct)
+    this.http.post<OrderProductList[]>(host + "order-product-lists/arr", arrOrderProduct)
       .subscribe(res => {
         console.log(res);
         //this.cartService.products = []

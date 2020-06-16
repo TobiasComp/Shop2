@@ -20,5 +20,4 @@ urlpatterns = [
     path('order-product-lists/<int:pk>', apiviews.OrderProductListDetail.as_view(), name="order_product_list_detail"),
     path('order-product-lists/arr', views.AddOrderProductListArray, name="add_order_product_list"),
     path('userorders/<int:pk>', views.AllUserOrders, name='userOrders')
-
 ]

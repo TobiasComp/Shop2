@@ -3,3 +3,5 @@ sendgrid.env
 __pycache__/
 
 venv/
+
+.idea/

@@ -1,15 +1,15 @@
 <p>cart works!</p>
 
-<table *ngIf = "cartService.products">
+<table *ngIf = "cartService.products" class="table">
     <thead>
         <tr>
-            <th>
+            <th scope="col">
                 Name        
             </th>
-            <th>
+            <th scope="col">
                 Id
             </th>
-            <th>
+            <th scope="col">
                 Price
             </th>
         </tr>

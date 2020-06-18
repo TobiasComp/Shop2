@@ -1,20 +1,20 @@
 <!-- <p>products works!</p> -->
-<table *ngIf = "productService.products">
+<table *ngIf="productService.products" class="table">
     <thead>
         <tr>
-            <th>
-                Name        
+            <th scope="col">
+                Name
             </th>
-            <th>
+            <th scope="col">
                 Id
             </th>
-            <th>
+            <th scope="col">
                 Price
             </th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor = "let product of productService.products" (click)="getProduct(product)">
+        <tr class="product-row pointer" *ngFor="let product of productService.products" (click)="getProduct(product)">
             <td>{{product.name}}</td>
             <td>{{product.id}}</td>
             <td>{{product.price}}</td>

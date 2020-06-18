@@ -1,15 +1,14 @@
-<!-- <p>product-item works!</p> -->
 
-<table *ngIf = "product">
+<table *ngIf="product" class="table">
     <thead>
         <tr>
-            <th>
-                Name        
+            <th scope="col">
+                Name
             </th>
-            <th>
+            <th scope="col">
                 Id
             </th>
-            <th>
+            <th scope="col">
                 Price
             </th>
         </tr>
@@ -19,20 +18,21 @@
             <td> {{ product.name }} </td>
             <td> {{ product.id }} </td>
             <td> {{ product.price }} </td>
-            <td><img [src]="productImagePath" alt=""></td> 
+            <td><img [src]="productImagePath" alt=""></td>
         </tr>
     </tbody>
 
-    <div [ngClass] = "showAddButton">
-        <button (click) = "addToCart()"> Add to Cart </button>
+    <div [ngClass]="showAddButton">
+        <button class="btn btn-primary m-2" (click)="addToCart()"> Add to Cart </button>
     </div>
 
-    
-    
+
+
 </table>
 
 <div [ngClass]="showCheckout">
     <p>you can either: </p>
-    <button (click)="checkout()">Checkout</button>
-    <button (click)="continueShopping()">Continue Shopping</button>
+
+    <button class="btn btn-primary m-2" (click)="continueShopping()">Continue Shopping</button>
+    <button class="btn btn-success m-2" (click)="checkout()">Checkout</button>
 </div>

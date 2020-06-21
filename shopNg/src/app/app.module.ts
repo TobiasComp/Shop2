@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
@@ -16,6 +16,7 @@ import { AdminProductsComponent } from './comps/admin/admin-products/admin-produ
 import { AdminSalesComponent } from './comps/admin/admin-sales/admin-sales.component';
 import { ProfileComponent } from './comps/profile/profile.component';
 import { AddProductComponent } from './comps/admin/add-product/add-product.component';
+import { TokenInterceptor } from './services/guards/token.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { AddProductComponent } from './comps/admin/add-product/add-product.compo
     AdminProductsComponent,
     AdminSalesComponent,
     AddProductComponent,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -41,7 +42,11 @@ import { AddProductComponent } from './comps/admin/add-product/add-product.compo
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

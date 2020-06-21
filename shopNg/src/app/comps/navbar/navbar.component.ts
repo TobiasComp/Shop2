@@ -19,6 +19,8 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     this.superService.isLoggedIn = false
+    this.userService.currentUser = null
+    this.userService.currentUserToken = null
     localStorage.clear();
     this.router.navigateByUrl("login")
   }

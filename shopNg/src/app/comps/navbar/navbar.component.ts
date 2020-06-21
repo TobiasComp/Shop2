@@ -1,3 +1,4 @@
+import { SuperService } from './../../services/guards/super.service';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
@@ -10,15 +11,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(public userService: UserService, public router:Router, public http:HttpClient) { }
+  constructor(public userService: UserService, public router: Router, public http: HttpClient,
+    private superService: SuperService) { }
 
   ngOnInit() {
   }
 
-  logout(){
-    console.log("reached the logout function");
-    
-    // this.http.get("http://localhost:8000/logout", httpOptions)
+  logout() {
+    this.superService.isLoggedIn = false
+    localStorage.clear();
     this.router.navigateByUrl("login")
   }
 }

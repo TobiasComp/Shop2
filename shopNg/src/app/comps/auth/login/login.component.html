@@ -1,15 +1,13 @@
-
-
 <div class="login-div-wrapper" *ngIf="loginFormGroup">
-    <form [formGroup]="loginFormGroup" class="login-form">
-        
-        
-            <input class="form-input" type="text" placeholder="Username" formControlName="user"><br>
-            <input class="form-input" placeholder="Password" formControlName="pass" type="password">
-            <br>
-            <span *ngIf="errorMessage"> {{ errorMessage }}</span>
-            <button class="form-button" [disabled]="loginFormGroup.invalid" (click)="login()">Login</button>
+    <span>
+    <form [formGroup]="loginFormGroup" class="form-group login-form">
+
+
+        <input class="form-input form-control" type="text" placeholder="Username" formControlName="user"><br>
+        <input class="form-input form-control" placeholder="Password" formControlName="pass" type="password">
+        <br>
+        <span *ngIf="errorMessage"> {{ errorMessage }}</span>
+        <button class="btn btn-primary m-2 form-button" [disabled]="loginFormGroup.invalid" (click)="login()">Login</button>
     </form>
+</span>
 </div>
-  
-  

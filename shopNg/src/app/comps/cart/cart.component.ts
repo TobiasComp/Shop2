@@ -17,9 +17,12 @@ export class CartComponent implements OnInit {
     this.cartService.calculateTotal()
   }
 
-  placeOrder(){
+  placeOrder() {
     this.orderService.placeOrder();
     this.router.navigateByUrl('order-summary')
   }
 
+  backToProducts() {
+    this.router.navigateByUrl('products');
+  }
 }

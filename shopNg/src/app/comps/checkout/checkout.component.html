@@ -1,10 +1,8 @@
-<!-- <p>checkout works!</p> -->
-
-<table *ngIf = "cartService.products">
+<table *ngIf="cartService.products">
     <thead>
         <tr>
             <th>
-                Name        
+                Name
             </th>
             <th>
                 Id
@@ -15,7 +13,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor = "let product of cartService.products" >
+        <tr *ngFor="let product of cartService.products">
             <td>{{product.name}}</td>
             <td>{{product.id}}</td>
             <td>{{product.price}}</td>
@@ -27,4 +25,4 @@
     </tr>
 </table>
 
-<button (click)="placeOrder()">Place Your Order</button>
+<button class="btn btn-success m-2" (click)="placeOrder()">Place Your Order</button>

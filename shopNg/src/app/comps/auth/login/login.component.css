@@ -1,18 +1,40 @@
 .login-div-wrapper{
     text-align: center;
-    padding-top: 300px;
+    border: 2px solid #ced4da;
+    height: 450px;
+    margin: auto;
+    width: 400px;
+    position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .login-form {
     display:inline;
+    
+	
 }
 
-.form-input {
+/* .form-input {
     margin: 20px 0;
     padding:2px;
     font-size: 20px;
-}
+} */
 
+.form-control {
+    margin: auto;
+    width: 300px;
+}
 .form-button {
     font-size: 20px;
+}
+
+form {
+    width: 500px;
+    
 }

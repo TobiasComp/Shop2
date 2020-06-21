@@ -1,6 +1,4 @@
-
-
-<ul class="navbar">
+<ul class="navbar pointer">
     <span class="left-nav">
         <li class="nav-item" routerLink="products">Home</li>
         <span class="admin-routes" *ngIf="userService.currentUser.id == 1">
@@ -10,10 +8,10 @@
     </span>
     <span class="right-nav">
         <li class="nav-item" routerLink='cart'>Cart</li>
-        <li class="nav-item" routerLink='profile' >Profile</li>
-        <li class="nav-item" routerLink='login' >Login</li>
-        <li class="nav-item" (click)="logout()" >Logout</li>
-        <li class="nav-item" routerLink='signup' >Signup</li>
+        <li class="nav-item" routerLink='profile'>Profile</li>
+        <li class="nav-item" routerLink='login'>Login</li>
+        <li class="nav-item" (click)="logout()">Logout</li>
+        <li class="nav-item" routerLink='signup'>Signup</li>
 
     </span>
 </ul>

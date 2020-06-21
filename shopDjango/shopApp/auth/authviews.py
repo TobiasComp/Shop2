@@ -1,4 +1,6 @@
 from django.contrib.auth import authenticate
+from django.core.validators import validate_email
+from django.forms import forms
 from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
@@ -8,7 +10,8 @@ from rest_framework.permissions import AllowAny
 from rest_framework.status import (
     HTTP_400_BAD_REQUEST,
     HTTP_404_NOT_FOUND,
-    HTTP_200_OK
+    HTTP_200_OK,
+    HTTP_403_FORBIDDEN
 )
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -29,10 +32,18 @@ from sendgrid.helpers.mail import Mail
 def signup(request):
     username = request.data.get("username")
     password = request.data.get("password")
+
     if username is None or password is None:
-        return Response({'error': 'Please provide both username and password'},
+        return Response({'error': 'Please provide username, password'},
                         status=HTTP_400_BAD_REQUEST)
-    user = User.objects.create(username=username, password=password)
+
+    try:
+        User.objects.get(username=username)
+        return Response({'error': 'This username is already taken'},
+                        status=HTTP_400_BAD_REQUEST)
+    except User.DoesNotExist:
+        user = User.objects.create_user(username=username, password=password)
+
     token, _ = Token.objects.get_or_create(user=user)
     return Response({'token': token.key},
                     status=HTTP_200_OK)
@@ -45,8 +56,8 @@ def login(request):
     print("I'm at the login post route from angular")
     username = request.data.get("username")
     password = request.data.get("password")
-    # print("username = "+ username)
-    # print("password = "+password)
+    print("username = "+ username)
+    print("password = "+password)
     if username is None or password is None:
         return Response({'error': 'Please provide both username and password'},
                         status=HTTP_400_BAD_REQUEST)
@@ -54,7 +65,7 @@ def login(request):
     print(user)
     if not user:
         return Response({'error': 'Invalid Credentials'},
-                        status=HTTP_404_NOT_FOUND)
+                        status=HTTP_403_FORBIDDEN)
     token, _ = Token.objects.get_or_create(user=user)
     return Response({'token': token.key},
                     status=HTTP_200_OK)

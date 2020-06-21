@@ -18,3 +18,6 @@ class OrderProductList(models.Model):
     product = models.ForeignKey(Product, related_name='orderProductList', on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=10, decimal_places=2)
 
+class Cart(models.Model):
+    user = models.ForeignKey(User, related_name='cart', on_delete=models.CASCADE)
+    products = models.ManyToManyField(Product, related_name='product', on_delete=models.CASCADE)

@@ -19,5 +19,6 @@ urlpatterns = [
     path('order-product-lists', apiviews.OrderProductList1.as_view(), name="order_product_list"),
     path('order-product-lists/<int:pk>', apiviews.OrderProductListDetail.as_view(), name="order_product_list_detail"),
     path('order-product-lists/arr', views.AddOrderProductListArray, name="add_order_product_list"),
+    # path('cart/<int:user_id>', views.Cart),
     path('userorders/<int:pk>', views.AllUserOrders, name='userOrders')
 ]

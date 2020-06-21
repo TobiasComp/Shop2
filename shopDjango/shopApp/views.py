@@ -15,13 +15,14 @@ from shopApp.serializers import  OrderSerializer, OrderProductListSerializer
 @csrf_exempt
 @permission_classes((AllowAny,))
 def AddOrderProductListArray(request):
+    print("this is the request as is", request.POST)
     data = JSONParser().parse(request)
-    print(data)
+    print("this is the data after being parsed for json", data)
     serializer = OrderProductListSerializer(data=data, many=True)
 
     if serializer.is_valid():
         serializer.save()
-        print(serializer.data)
+        print("this is hte data after the serializer", serializer.data)
     return JsonResponse(serializer.data, safe=False, status=HTTP_200_OK)
 
 @api_view(['GET'])

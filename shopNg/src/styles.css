@@ -2,10 +2,10 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
 body {
-    margin: 0px;
-    padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 
 .pointer {
-    cursor: pointer;
+  cursor: pointer;
 }

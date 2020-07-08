@@ -28,7 +28,7 @@ export class SignupComponent implements OnInit {
   signup() {
     let newUser = this.signupFormGroup.value.user;
     let newPassword = this.signupFormGroup.value.pass;
-
+    console.log("this is hte new user and password", newUser, newPassword)
     this.http.post(host + "signup", { username: newUser, password: newPassword })
       .subscribe(response => {
 

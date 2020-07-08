@@ -96,7 +96,7 @@ DATABASES = {
         },
         'NAME': 'shopDjango',
         'USER': 'root',
-        'PASSWORD': '1q2w3e4r',
+        'PASSWORD': 'miracle1984',
         'HOST': 'localhost',
         'PORT': 3306
     }

@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 import { host } from '../../../environments/environment'
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-login',
@@ -34,11 +35,12 @@ export class LoginComponent implements OnInit {
     this.http.post(host+"login", {username:myUser, password:myPass})
     .subscribe(response=>{
       
-      console.log(response['token'])
-      this.userService.currentUserToken = "Token "+response['token']
-      localStorage.setItem('token', this.userService.currentUserToken)
-      this.superService.isLoggedIn = true
-        this.router.navigateByUrl('products')
+      console.log(response)
+      this.userService.currentUserToken = "Token "+response['token'];
+      localStorage.setItem('token', this.userService.currentUserToken);
+      this.superService.isLoggedIn = true;
+      this.userService.currentUser= new User(response['id']);
+      this.router.navigateByUrl('products')
       
      });
     

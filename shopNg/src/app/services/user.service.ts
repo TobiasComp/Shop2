@@ -14,7 +14,7 @@ import {host } from '../environments/environment';
 export class UserService {
 
   myApi = host + "userorders/"
-  currentUser: User = new User()
+  currentUser: User 
   previousOrders: OrderProductList[]
   dataSubject: BehaviorSubject<OrderProductList[]> = new BehaviorSubject<OrderProductList[]>([])
   currentUserToken: string
@@ -22,7 +22,7 @@ export class UserService {
 
   constructor(public http: HttpClient) {
     // DUMMY USER
-    this.currentUser.id = 1
+    // this.currentUser.id = 0;
   }
 
   getPreviousOrders(): Observable<OrderProductList[]> {
